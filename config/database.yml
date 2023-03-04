@@ -8,10 +8,14 @@ default: &default
 development:
   <<: *default
   database: kirpachov_com_portfolio_dev
+  username: railsapp
+  password: railsapp_pwd
 
 test:
   <<: *default
   database: kirpachov_com_portfolio_test
+  username: railsapp
+  password: railsapp_pwd
 
 production:
   <<: *default
