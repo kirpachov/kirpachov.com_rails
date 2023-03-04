@@ -1,0 +1,53 @@
+default: &default
+  name: AppName
+  admin_name: AdminName
+  admin_email: admin@email.net
+  user_block_ttl: 600
+  base_url: "http://localhost:3000"
+
+  # ---------------------------------------------------------
+  # SMTP CONFIGURATIONS
+  # ---------------------------------------------------------
+  # You can set SMTP configurations for email delivery here.
+  #
+  # address:              | Specify the host (hostname or IP) of mail server
+  #                       | to which mail client have to connect to deliver emails.
+  # port:                 | SMTP port number on mail server.
+  # domain:               | Domain name for which we're going to deliver emails. Usually it
+  #                       | matches the last part of email address (admin@example.com -> example.com).
+  # enable_starttls_auto: | Enable automatic STARTTLS configuration detection and automatic protocol switch.
+  # openssl_verify_mode:  | Specify server SSL certificate verification mode ('none' to disable).
+  # authentication:       | Specify the type of SMTP authentication to use (set to null when disabled)
+  # user_name:            | Username to use for SMTP authentication (used when authentication is specified)
+  # password:             | The password of SMTP user
+  #
+  # Example:
+  #
+  # smtp:
+  #   address: mail.example.com
+  #   port: 25
+  #   domain: example.com
+  #   enable_starttls_auto: true
+  #   openssl_verify_mode: none
+  #   authentication: plain
+  #   user_name: user@example.com
+  #   password: mysecret
+
+  # Email addresses where to send final email (when projects are closed)
+  developers_emails:
+   - sasha@opinioni.net
+
+  send_developers_emails: true
+
+  smtp: null
+  origins:
+    - localhost
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

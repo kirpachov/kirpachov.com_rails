@@ -1,0 +1,9 @@
+# sync_lime_surveys:
+#   cron: "0,15,30,45 6-23 * * *"
+#   class: "SyncLimeSurveysJob"
+#   queue: "default"
+
+# sync_last_response_at:
+#   cron: "0 2,10,18 * * *"
+#   class: "SyncLimeSurveysLastResponseAtJob"
+#   queue: "default"
