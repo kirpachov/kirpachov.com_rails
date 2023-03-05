@@ -26,9 +26,7 @@ if env == 'production'
   # Logging
   stdout_redirect "#{base_path}/log/#{env}.log", "#{base_path}/log/puma.stderr.log", true
 else
-  # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-  #
-  port ENV.fetch('PORT', 3000)
+  port ENV.fetch('PORT', 3010)
 end
 
 # Specifies the `pidfile` that Puma will use.
