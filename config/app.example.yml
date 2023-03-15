@@ -42,6 +42,7 @@ default: &default
   smtp: null
   origins:
     - localhost
+    - 127.0.0.1
 
 development:
   <<: *default
