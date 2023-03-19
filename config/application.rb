@@ -58,8 +58,6 @@ module KirpachovComPortfolio
       end
     end
 
-    smtp = Rails.configuration.app[:smtp]
-
     if smtp
       config.action_mailer.delivery_method = :smtp
       config.action_mailer.smtp_settings = smtp

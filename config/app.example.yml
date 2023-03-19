@@ -37,6 +37,13 @@ default: &default
   developers_emails:
    - sasha@opinioni.net
 
+  contact_emails:
+   - kirpachov.com@gmail.com
+
+  emails:
+    default_from: o.kirpachov@opinioni.net
+    default_reply_to: o.kirpachov@opinioni.net
+
   send_developers_emails: true
 
   smtp: null
