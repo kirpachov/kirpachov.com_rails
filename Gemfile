@@ -9,10 +9,21 @@ gem "pg", "~> 1.1"
 
 gem "puma", "~> 5.0"
 
+gem 'activerecord-soft_validation', path: '/home/sasha/git/activerecord-soft_validation/'
+
+gem 'active_interaction', '~> 5.2'
+
+gem 'active_model_serializers', '~> 0.10.13'
+
+# gem 'cancancan'
+
+gem 'text-table', '~> 1.2.4'
+
+gem 'globalize', '~> 6.2.1'
+
 # IMPORTED
 gem 'rubyzip', '~> 2.3.2'
 # gem 'pastore', '~> 0.1.0'
-# gem 'active_model_serializers', '~> 0.10.13'
 gem 'redis', '~> 4.3.1'
 gem 'redis-namespace', '~> 1.8.2'
 gem 'sidekiq-cron', '~> 1.7.0'
@@ -36,6 +47,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 group :development, :test do
+  gem 'solargraph', '~> 0.48.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'database_cleaner', '~> 2.0.1', require: false
   gem 'factory_bot_rails', '~> 6.2.0', require: false

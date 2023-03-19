@@ -18,6 +18,16 @@ class ApplicationController < ActionController::API
 
   protected
 
+  def authenticated?
+    !current_user.nil?
+  end
+
+  attr_reader :current_user
+
+  def user_id
+    @current_user ? @current_user.id : nil
+  end
+
   def process(action, *args)
     super
   rescue AbstractController::ActionNotFound => e
@@ -26,7 +36,8 @@ class ApplicationController < ActionController::API
     render_error(status: 404, message: e.message)
   end
 
-  def render_item_errors(status: :unprocessable_entity, message: @item.errors.full_messages.join(', '), details: @item.errors.full_json)
+  def render_item_errors(status: :unprocessable_entity, message: @item.errors.full_messages.join(', '),
+                         details: @item.errors.full_json)
     render_error(status: status, message: message, details: details)
   end
 
@@ -39,6 +50,7 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate_user
+    puts 'authenticate_user'
     @current_user = AuthorizeApiRequest.call(request.headers).result
     return render_unauthorized unless @current_user
   end
@@ -57,9 +69,9 @@ class ApplicationController < ActionController::API
   end
 
   def json_metadata(resources)
-    return {
+    {
       current_page: resources.current_page,
-      per_page:  resources.per_page,
+      per_page: resources.per_page,
       prev_page: resources.previous_page,
       next_page: resources.next_page,
       total_pages: resources.total_pages,
