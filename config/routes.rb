@@ -10,6 +10,11 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   defaults format: :json do # rubocop:disable Metrics/BlockLength
     scope module: :v1, path: 'v1' do # rubocop:disable Metrics/BlockLength
       resources :projects, only: %i[index show]
+      resources :rfqs, only: %i[] do
+        collection do
+          post 'contact'
+        end
+      end
     end
   end
 end
