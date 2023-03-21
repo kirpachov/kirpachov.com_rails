@@ -10,7 +10,7 @@ module V1
 
       render json: {
         success: result.valid?,
-        errors: result.errors.full_json,
+        details: result.errors.full_json,
         message: result.valid? ? 'Your message has been sent.' : 'There was an error sending your message.'
       }, status: result.valid? ? :ok : :unprocessable_entity
     end

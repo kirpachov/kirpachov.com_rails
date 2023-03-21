@@ -1,0 +1,8 @@
+it:
+  active_interaction:
+    errors:
+      models:
+        contact_me:
+          attributes:
+            name:
+              blank: Nome non può essere vuoto
