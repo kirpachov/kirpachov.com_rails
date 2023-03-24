@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
 
   before_action :authenticate_user
+  before_action :slow_down
 
   def parse_json_params
     params.each_key do |key|
@@ -17,6 +18,19 @@ class ApplicationController < ActionController::API
   end
 
   protected
+
+  def slow_down
+    return if Rails.env.production?
+    return if Random.rand > 0.8 # In 20% of cases do not slow down.
+
+    percent = Config.app[:slow_down]
+    return if ['false', false, 0, '0'].include? percent
+
+    percent = 0.5 unless percent.is_a?(Float) && percent >= 0 && percent <= 1
+    time = (1.0 + Random.rand(0..3).to_f) * percent
+    logger.debug "Slowing down #{time}s"
+    sleep time
+  end
 
   def authenticated?
     !current_user.nil?
