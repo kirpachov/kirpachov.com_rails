@@ -13,6 +13,10 @@ module V1
       }
     end
 
+    def show
+      render json: ::FindProject.run!(id: params[:id], current_user: current_user)
+    end
+
     private
 
     def index_params

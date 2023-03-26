@@ -2,6 +2,10 @@
 
 require 'faker'
 
+def random_production_urls
+  Random.rand(0..3).times.map { Faker::Internet.url }
+end
+
 Random.rand(5..15).times do
 
   Project.create!(
@@ -9,7 +13,8 @@ Random.rand(5..15).times do
     end_date: Faker::Date.between(from: Date.today, to: 2.days.from_now),
     status: Project.statuses.keys.sample,
     title: Faker::Lorem.sentence,
-    description: Faker::Lorem.paragraph
+    description: Faker::Lorem.paragraph,
+    production_urls: random_production_urls
   )
 end
 
@@ -25,6 +30,7 @@ Project.statuses.keys.each do |status|
           visibility: visibility,
           title: Faker::Lorem.sentence,
           description: Faker::Lorem.paragraph,
+          production_urls: random_production_urls
         )
 
         pj.save if pj.valid?
