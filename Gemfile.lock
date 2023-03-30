@@ -246,6 +246,9 @@ GEM
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)
+    roo (2.10.0)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -353,6 +356,7 @@ DEPENDENCIES
   rails-controller-testing (~> 1.0.5)
   redis (~> 4.3.1)
   redis-namespace (~> 1.8.2)
+  roo (~> 2.10.0)
   rspec-rails (~> 6.0.1)
   rubyzip (~> 2.3.2)
   shoulda-matchers (~> 5.2.0)

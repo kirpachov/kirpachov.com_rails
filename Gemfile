@@ -17,6 +17,8 @@ gem 'active_model_serializers', '~> 0.10.13'
 
 # gem 'cancancan'
 
+gem 'roo', '~> 2.10.0'
+
 gem 'text-table', '~> 1.2.4'
 
 gem 'globalize', '~> 6.2.1'
