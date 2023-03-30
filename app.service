@@ -1,3 +1,5 @@
+# Location: /lib/systemd/system/<appname>.service
+
 [Unit]
 Description=Kirpachov.com Backend service
 After=syslog.target network.target
