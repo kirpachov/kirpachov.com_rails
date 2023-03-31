@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class CreateProjectsByFile < ActiveInteraction::Base
-  string :filename
-  boolean :cleanup, default: false
+  string :filename, default: 'projects.xlsx'
+  boolean :cleanup, default: true
 
   def execute
     Project.delete_all if cleanup
@@ -11,10 +11,10 @@ class CreateProjectsByFile < ActiveInteraction::Base
     file = Roo::Spreadsheet.open(path)
     sheet = file.sheet(0)
     data = sheet.parse(headers: true)[1..]
-    byebug
 
     data.each do |row|
-      proj = Project.new(row.as_json(only: Project.column_names).merge(production_urls: row['production_urls'].split(',')))
+      proj = Project.new(production_urls: row.delete('production_urls').split(',') || [])
+      %w[status start_date end_date visibility].each { |col| proj[col] = row.delete(col) }
       proj.attributes = {
         title: row.delete('title_it'),
         description: row.delete('description_it'),

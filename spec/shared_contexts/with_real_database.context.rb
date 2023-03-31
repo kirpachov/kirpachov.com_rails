@@ -43,7 +43,6 @@ RSpec.shared_context WITH_REAL_DATABASE do
   #       ActiveRecord::Base.connection.execute(File.read(dbfile_path))
   #       Rails.logger.info 'Database imported'
   #     end
-  #     byebug
   #   end
   # end
 end
