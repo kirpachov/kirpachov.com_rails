@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   # ##############################
   # Settings
   # ##############################
-  translates :title, :description
+  translates :title, :description, fallbacks_for_empty_translations: true
 
   enum status: {
     'pending' => 'pending',

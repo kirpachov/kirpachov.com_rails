@@ -31,6 +31,8 @@ module KirpachovComPortfolio
 
     config.i18n.available_locales = %i[it en]
 
+    config.i18n.fallbacks = true
+
     config.app = config_for("app.example").symbolize_keys
     if File.exist?("config/app.yml")
       config.app.merge!(config_for("app").symbolize_keys)
