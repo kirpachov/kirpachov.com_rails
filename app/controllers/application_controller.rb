@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
 
   before_action :authenticate_user
   before_action :slow_down
+  before_action :set_locale
 
   def parse_json_params
     params.each_key do |key|
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::API
   end
 
   protected
+
+  def set_locale
+    I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+  end
 
   def slow_down
     return if Rails.env.production?

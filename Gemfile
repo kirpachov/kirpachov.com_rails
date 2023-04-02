@@ -23,6 +23,8 @@ gem 'text-table', '~> 1.2.4'
 
 gem 'globalize', '~> 6.2.1'
 
+gem 'rack-cors', '~> 1.1.1'
+
 # IMPORTED
 gem 'rubyzip', '~> 2.3.2'
 # gem 'pastore', '~> 0.1.0'
@@ -41,6 +43,8 @@ gem 'mustache', '~> 1.1.1'
 # gem 'image_processing', '~> 1.12.1'
 # gem 'mini_magick', '~> 4.11.0'
 gem 'timeout', '~> 0.3.0'
+
+gem 'http_accept_language', '~> 2.1.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
